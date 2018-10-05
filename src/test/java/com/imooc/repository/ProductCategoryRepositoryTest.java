@@ -35,9 +35,9 @@ public class ProductCategoryRepositoryTest {
      * 插入测试
      */
     @Test
-    @Transactional  //如果希望执行测试test之后，数据库是干净的没有变化的，可以用@Transactional注解
+    //@Transactional  //如果希望执行测试test之后，数据库是干净的没有变化的，可以用@Transactional注解
     public void insertTest() {
-        ProductCategory productCategory = new ProductCategory("女生最爱", 6);
+        ProductCategory productCategory = new ProductCategory("女生最爱", 2);
        // productCategory.setCategoryId(4);//更新的时候需要设置主键，由于主键自增，插入的时候不需要设置主键
         ProductCategory result = repository.save(productCategory);
         System.out.println(result);
