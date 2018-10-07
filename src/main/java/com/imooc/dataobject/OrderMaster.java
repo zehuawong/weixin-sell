@@ -7,8 +7,10 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by 廖师兄
@@ -49,5 +51,8 @@ public class OrderMaster {
 
     /** 更新时间. */
     private Date updateTime;
+
+//    @Transient  //用这种方式不好，因为数据库中没有与之对应的字段，改用dto数据传输对象的方式
+//    private List<OrderDetail> orderDetailList;
 
 }
