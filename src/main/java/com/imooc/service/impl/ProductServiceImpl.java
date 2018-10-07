@@ -25,7 +25,7 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public ProductInfo findOne(String productId) {
-        return repository.findById(productId).get();
+        return repository.findById(productId).orElse(null);
     }
 
     @Override
@@ -47,7 +47,7 @@ public class ProductServiceImpl implements ProductService{
     @Transactional
     public void decreaseStock(List<CartDTO> cartDTOList) {  //重点：并发情况下，扣库存需要加锁，Redis锁机制解决该问题
         for (CartDTO cartDTO: cartDTOList) {
-            ProductInfo productInfo = repository.findById(cartDTO.getProductId()).get();
+            ProductInfo productInfo = repository.findById(cartDTO.getProductId()).orElse(null);
             if (productInfo == null) {
                 throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
             }
