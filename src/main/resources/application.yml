@@ -2,15 +2,19 @@ server:
   servlet:
     context-path: /sell
 spring:
- #���ݿ�����
+  #数据库配置
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     #url: jdbc:mysql://192.168.30.113/sell?characterEncoding=utf-8&useSSL=false
     url: jdbc:mysql://127.0.0.1/sell?characterEncoding=utf-8&useSSL=false
     username: root
     password: 19952015
-  #jpa����
+  #jpa配置
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
+  #jackson实体转json时 为NULL不参加序列化的汇总
+  #jackson,返回给前台的字段为null的时候则取消返回该字段
+  jackson:
+    default-property-inclusion: non_null

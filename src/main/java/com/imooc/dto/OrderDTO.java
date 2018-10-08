@@ -14,12 +14,10 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by 廖师兄
- * 2017-06-11 18:30
  */
 @Data
-//@JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
-//@JsonInclude(JsonInclude.Include.NON_NULL)
+//@JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL) //   #jackson实体转json时 为NULL不参加序列化的汇总
+//@JsonInclude(JsonInclude.Include.NON_NULL)    //如果字段为空，比如 orderDetailList为null的时候则不返回给前台
 public class OrderDTO {
 
     /** 订单id. */
@@ -51,7 +49,7 @@ public class OrderDTO {
     private Date createTime;
 
     /** 更新时间. */
-    @JsonSerialize(using = Date2LongSerializer.class)
+    @JsonSerialize(using = Date2LongSerializer.class) // 解决返回给前台的date多出3个0（毫秒）的问题
     private Date updateTime;
 
     List<OrderDetail> orderDetailList;
