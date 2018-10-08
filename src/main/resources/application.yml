@@ -18,3 +18,14 @@ spring:
   #jackson,返回给前台的字段为null的时候则取消返回该字段
   jackson:
     default-property-inclusion: non_null
+
+wechat:
+  mpAppId: wxef749875304c8b96
+  mpAppSecret: 58332011f1a3e2ce9607df8c942a6f34
+
+
+
+project-url:
+  wechat-mp-authorize: http://zehua.s1.natapp.cc
+  wechat-open-authorize: http://zehua.s1.natapp.cc
+  sell: http://zehua.s1.natapp.cc
